@@ -1,5 +1,5 @@
 from atguigu.domain.message import UserMessage, ProcessResult, BotMessage
-from atguigu.domain.stata import DialogueState
+from atguigu.domain.state import DialogueState
 from atguigu.engine.dialogue_engine import DialogueEngine
 from atguigu.repository.dialogue_repository import DialogueRepository
 
@@ -16,6 +16,6 @@ class DialogueService:
         # 2.调用DialogueEngine处理用户消息
         process_result: list[BotMessage] = await self.dialogue_engine.process_message(dialogue_state,user_message)
         # 3.将处理结果保存到数据库
-        await self.dialogue_repository.save_state(user_message.sender_id,dialogue_state)
+        await self.dialogue_repository.save_state(dialogue_state)
         # 4.返回处理结果
         return process_result

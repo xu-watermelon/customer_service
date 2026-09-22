@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from atguigu.domain.stata import DialogueState
+from atguigu.domain.state import DialogueState
 from pydantic import TypeAdapter
 from sqlalchemy import select
 from sqlalchemy.dialects.mysql import insert
